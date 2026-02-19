@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Portfolio – Hiba Laraisse | Mechanical Engineer</title>
+    <title>Portfolio – Hiba Laraisse | Ingénierie Mécanique</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet"/>
 
     <script>
@@ -23,7 +22,8 @@
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     boxShadow: {
-                        card: '0 4px 20px rgba(0,0,0,0.08)'
+                        card: '0 4px 20px rgba(0,0,0,0.08)',
+                        floating: '0 10px 40px rgba(2, 132, 199, 0.15)'
                     }
                 }
             }
@@ -40,178 +40,194 @@
                 linear-gradient(to bottom, rgba(2,132,199,0.05) 1px, transparent 1px);
             background-size:40px 40px;
             pointer-events:none;
+            z-index: 0;
         }
-
         body::-webkit-scrollbar{display:none;}
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, 10px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
     </style>
 </head>
 
-<body class="text-ink font-sans min-h-screen bg-slate-50 bg-grid-paper overflow-x-hidden">
+<body class="text-ink font-sans min-h-screen bg-slate-50 bg-grid-paper overflow-x-hidden relative">
 
-<main class="min-h-screen flex items-center justify-center p-6">
+<main class="min-h-screen flex items-center justify-center p-4 md:p-6 relative z-10">
 
-<div class="relative w-full max-w-5xl h-[80vh] flex items-center justify-center">
+    <div class="relative w-full max-w-5xl h-[80vh] flex items-center justify-center">
 
-<!-- PROFILE CENTER -->
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center flex flex-col items-center">
+            
+            <div class="relative group">
+                <div class="absolute -inset-2 rounded-full border border-dashed border-sky/30 animate-[spin_15s_linear_infinite_reverse]"></div>
+                <div class="w-28 h-28 md:w-40 md:h-40 rounded-full bg-white shadow-card border-4 border-white overflow-hidden relative z-10">
+                    <img src="https://ui-avatars.com/api/?name=Hiba+Laraisse&background=ffffff&color=0284c7&size=256"
+                         alt="Hiba Laraisse"
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+            </div>
 
-    <div class="w-40 h-40 rounded-full bg-white shadow-card border-4 border-white overflow-hidden mx-auto">
-        <!-- tu peux remplacer par ta photo -->
-        <img src="https://ui-avatars.com/api/?name=Hiba+Laraisse&background=ffffff&color=0284c7&size=256"
-             class="w-full h-full object-cover">
+            <h1 class="font-mono text-lg md:text-xl font-bold mt-4 tracking-wider text-ink bg-white/80 px-4 py-1 rounded-full backdrop-blur-sm">
+                HIBA LARAISSE
+            </h1>
+
+            <p class="text-[10px] md:text-xs text-sky font-bold uppercase tracking-widest bg-sky/10 px-3 py-1.5 rounded-full mt-2 inline-block text-center max-w-[250px] md:max-w-none">
+                Étudiante Ingénieure Mécanique<br class="md:hidden"><span class="hidden md:inline"> – </span>FEA & Simulation
+            </p>
+        </div>
+
+        <div id="menu" class="absolute inset-0 z-30 pointer-events-none"></div>
+
     </div>
 
-    <h1 class="font-mono text-xl font-bold mt-4 tracking-wider">
-        HIBA LARAISSE
-    </h1>
+    <div id="content-layer" class="fixed inset-0 pointer-events-none z-50 flex items-end md:items-center justify-center pb-10 md:pb-0"></div>
 
-    <p class="text-xs text-sky font-bold uppercase tracking-widest bg-sky/10 px-2 py-1 rounded mt-2 inline-block">
-        Mechanical Engineering Student – FEA & Simulation
-    </p>
-</div>
-
-<div id="menu" class="absolute inset-0"></div>
-<div id="content-layer" class="absolute inset-0"></div>
-
-</div>
 </main>
 
 <script>
 /* =========================
    PORTFOLIO DATA
 ========================= */
-
 const portfolioData = [
-
-{
-    id:'about',
-    title:'À Propos',
-    icon:'fa-regular fa-user',
-    content:`Étudiante en ingénierie mécanique (double diplôme SUPMICROTECH – EMI).
-    Spécialisée en calcul par éléments finis, dynamique des structures et simulation numérique.`
-},
-
-{
-    id:'experience',
-    title:'Expérience',
-    icon:'fa-solid fa-briefcase',
-    content:`
-    <b>Stage – Groupe OCP</b><br>
-    • Analyse mécanique pompe JFC2<br>
-    • Étude vibratoire & diagnostic<br>
-    • Fiabilité et maintenance<br><br>
-
-    <b>Stage – Royal Air Maroc</b><br>
-    • Observation maintenance Boeing/Embraer<br>
-    • Documentation technique & sous-traitance MRO
-    `
-},
-
-{
-    id:'skills',
-    title:'Compétences',
-    icon:'fa-solid fa-microchip',
-    content:`
-    <b>Simulation :</b> ANSYS, Nastran/Patran, ADAMS<br>
-    <b>CAO :</b> CATIA V5, SolidWorks, CREO<br>
-    <b>Code :</b> Python, MATLAB, C, SQL, Arduino<br>
-    <b>Domaines :</b> dynamique, vibrations, matériaux, fatigue
-    `
-},
-
-{
-    id:'projects',
-    title:'Projets académiques',
-    icon:'fa-solid fa-rocket',
-    content:`
-    • Treillis EF (Nastran/Patran)<br>
-    • Barrage-poids ANSYS<br>
-    • Réservoir CODAP<br>
-    • Réservoir H₂ ZEROe<br>
-    • Ascenseur de charge CAO + calculs<br>
-    • Sélection matériaux CES EduPack
-    `
-},
-
-{
-    id:'clubs',
-    title:'Clubs',
-    icon:'fa-solid fa-users',
-    content:`
-    • EMI Aerospace – Cheffe sponsoring & membre projet<br>
-    • AstroEMI – Cheffe sponsoring & membre projet<br>
-    • Eminence – Vice-Présidente<br>
-    • Organisation événements techniques & partenariats industriels
-    `
-},
-
-{
-    id:'contact',
-    title:'Contact',
-    icon:'fa-regular fa-envelope',
-    content:`
-    📧 <a href="mailto:hiba.laraisse@supmicrotech.fr" class="text-sky font-bold">hiba.laraisse@supmicrotech.fr</a><br>
-    💼 <a href="https://linkedin.com/in/hibalaraisse" class="text-sky font-bold">LinkedIn</a><br>
-    📅 Stage 6 mois – Janvier 2026
-    `
-}
-
+    {
+        id:'about',
+        title:'À Propos',
+        icon:'fa-regular fa-user',
+        content:`Étudiante en ingénierie mécanique en double diplôme (SUPMICROTECH – École Mohammadia d'Ingénieurs).<br><br>Spécialisée en calcul par éléments finis (FEM), conception mécanique, aéronautique et dynamique des structures.`
+    },
+    {
+        id:'experience',
+        title:'Expérience',
+        icon:'fa-solid fa-briefcase',
+        content:`
+        <ul class="space-y-3">
+            <li><b>Stage Ingénieur – Groupe OCP</b><br>
+            <span class="text-xs text-slate-500">• Analyse mécanique de la pompe JFC2<br>• Étude vibratoire & diagnostic de fiabilité</span></li>
+            <li><b>Stage – Royal Air Maroc</b><br>
+            <span class="text-xs text-slate-500">• Observation maintenance Boeing/Embraer<br>• Appui aux contrats de sous-traitance MRO</span></li>
+        </ul>`
+    },
+    {
+        id:'skills',
+        title:'Compétences',
+        icon:'fa-solid fa-microchip',
+        content:`
+        <div class="grid grid-cols-1 gap-2">
+            <p><b>Simulation:</b> ANSYS, Nastran/Patran, ADAMS</p>
+            <p><b>CAO:</b> CATIA V5, SolidWorks, CREO</p>
+            <p><b>Programmation:</b> Python, MATLAB, C, Arduino</p>
+            <p><b>Langues:</b> Français (C1), Anglais (C1), Arabe (Natif), Japonais (A1)</p>
+        </div>`
+    },
+    {
+        id:'projects',
+        title:'Projets',
+        icon:'fa-solid fa-rocket',
+        content:`
+        <ul class="list-disc pl-4 space-y-1 text-xs md:text-sm">
+            <li>Résolution EDP : méthode P2-Lagrange (FEM)</li>
+            <li>Analyse d'un barrage-poids (ANSYS)</li>
+            <li>Treillis modélisé sous Nastran/Patran</li>
+            <li>Étude conductivité électrique (titane/oxyde de titane)</li>
+            <li>Réservoir H₂ (Airbus ZEROe) & Réservoir CODAP</li>
+        </ul>`
+    },
+    {
+        id:'clubs',
+        title:'Clubs',
+        icon:'fa-solid fa-users',
+        content:`
+        <ul class="space-y-2">
+            <li>🚀 <b>AstroEMI (2024-2025)</b><br><span class="text-xs text-slate-500">Vice-présidente</span></li>
+            <li>✈️ <b>EMI Aerospace (2023-2025)</b><br><span class="text-xs text-slate-500">Cheffe sponsoring & membre projet</span></li>
+            <li>⭐ <b>Eminence (2024-2025)</b><br><span class="text-xs text-slate-500">Membre active</span></li>
+        </ul>`
+    },
+    {
+        id:'contact',
+        title:'Contact',
+        icon:'fa-regular fa-envelope',
+        content:`
+        <div class="space-y-2">
+            <p>📧 <a href="mailto:hiba.laraisse@supmicrotech.fr" class="text-sky font-bold hover:underline">hiba.laraisse@supmicrotech.fr</a></p>
+            <p>💼 <a href="https://linkedin.com/in/hibalaraisse" target="_blank" class="text-sky font-bold hover:underline">LinkedIn</a></p>
+            <div class="mt-4 p-3 bg-sky/5 border border-sky/20 rounded-lg text-center">
+                <span class="text-xs font-bold text-sky uppercase">Recherche de stage</span><br>
+                Stage de 6 mois – Février / Mars 2026
+            </div>
+        </div>`
+    }
 ];
 
 /* =========================
-   UI GENERATION
+   UI GENERATION & LOGIC
 ========================= */
-
 const menu = document.getElementById("menu");
 const contentLayer = document.getElementById("content-layer");
 
-const radius = 260;
+function renderMenu() {
+    menu.innerHTML = "";
+    
+    // Rayon dynamique : plus petit sur mobile, grand sur PC
+    const isMobile = window.innerWidth < 768;
+    const radiusX = isMobile ? 130 : 280;
+    const radiusY = isMobile ? 180 : 280;
 
-portfolioData.forEach((section,i)=>{
+    portfolioData.forEach((section, i) => {
+        const angle = (i / portfolioData.length) * Math.PI * 2 - (Math.PI / 2); // Commence en haut (-90deg)
+        const x = Math.cos(angle) * radiusX;
+        const y = Math.sin(angle) * radiusY;
 
-    const angle = (i/portfolioData.length)*Math.PI*2;
+        const btn = document.createElement("button");
+        btn.className = "absolute w-20 h-20 md:w-24 md:h-24 rounded-full bg-white shadow-card border border-slate-100 hover:border-sky hover:shadow-floating flex flex-col items-center justify-center transition-all duration-300 pointer-events-auto group z-40";
+        
+        btn.style.left = `calc(50% + ${x}px)`;
+        btn.style.top = `calc(50% + ${y}px)`;
+        btn.style.transform = "translate(-50%,-50%)";
 
-    const x = Math.cos(angle)*radius;
-    const y = Math.sin(angle)*radius;
+        btn.innerHTML = `
+            <i class="${section.icon} text-slate-400 group-hover:text-sky text-xl md:text-2xl mb-1 transition-colors"></i>
+            <span class="text-[9px] md:text-[10px] font-mono font-bold text-slate-500 group-hover:text-ink uppercase tracking-wider text-center px-1 leading-tight">${section.title}</span>
+        `;
 
-    const btn = document.createElement("button");
+        btn.onclick = () => showContent(section);
+        menu.appendChild(btn);
+    });
+}
 
-    btn.className="absolute w-24 h-24 rounded-full bg-white shadow-card border hover:border-sky flex flex-col items-center justify-center transition";
-
-    btn.style.left=`calc(50% + ${x}px)`;
-    btn.style.top=`calc(50% + ${y}px)`;
-    btn.style.transform="translate(-50%,-50%)";
-
-    btn.innerHTML=`
-        <i class="${section.icon} text-sky text-xl"></i>
-        <span class="text-[10px] font-mono mt-1">${section.title}</span>
-    `;
-
-    btn.onclick=()=>showContent(section);
-
-    menu.appendChild(btn);
-});
-
-
-function showContent(section){
-
-    contentLayer.innerHTML="";
-
-    const box=document.createElement("div");
-
-    box.className="absolute left-1/2 top-[85%] -translate-x-1/2 w-[330px] bg-white shadow-xl rounded-lg border p-5";
-
-    box.innerHTML=`
-        <div class="flex justify-between items-center mb-3">
-            <h2 class="font-bold font-mono text-sm">${section.title}</h2>
-            <button onclick="this.parentElement.parentElement.remove()">✕</button>
+function showContent(section) {
+    contentLayer.innerHTML = "";
+    const box = document.createElement("div");
+    
+    // Positionnement modal moderne
+    box.className = "fade-in pointer-events-auto w-[90%] md:w-[400px] bg-white/95 backdrop-blur-md shadow-floating rounded-2xl border border-slate-200 overflow-hidden relative";
+    
+    box.innerHTML = `
+        <div class="flex justify-between items-center p-4 border-b border-slate-100 bg-slate-50/50">
+            <div class="flex items-center gap-2">
+                <i class="${section.icon} text-sky"></i>
+                <h2 class="font-bold font-mono text-sm uppercase tracking-wide text-ink">${section.title}</h2>
+            </div>
+            <button onclick="this.closest('.fade-in').remove()" class="text-slate-400 hover:text-red-500 transition-colors w-6 h-6 flex items-center justify-center rounded-full hover:bg-red-50">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
         </div>
-        <div class="text-sm text-slate-600 leading-relaxed">${section.content}</div>
+        <div class="p-5 text-sm text-slate-600 leading-relaxed max-h-[50vh] overflow-y-auto">
+            ${section.content}
+        </div>
     `;
 
     contentLayer.appendChild(box);
 }
-</script>
 
+// Initialisation et gestion du redimensionnement
+renderMenu();
+window.addEventListener('resize', renderMenu);
+
+</script>
 </body>
 </html>
