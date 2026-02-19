@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Ingénieur Mécanique - Focus Mode</title>
+    <title>Portfolio - Hiba Laraisse</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
@@ -43,10 +43,10 @@
                             'from': { opacity: 0, transform: 'translateY(10px)' },
                             'to': { opacity: 1, transform: 'translateY(0)' }
                         },
-                        slideLeft: { // La liste part vers la gauche
+                        slideLeft: {
                             'to': { opacity: 0, transform: 'translateX(-50px)' }
                         },
-                        slideRight: { // Le détail arrive de la droite
+                        slideRight: {
                             'from': { opacity: 0, transform: 'translateX(50px)' },
                             'to': { opacity: 1, transform: 'translateX(0)' }
                         }
@@ -85,11 +85,11 @@
                     <div class="absolute -inset-2 rounded-full border border-dashed border-sky/10 animate-[spin_15s_linear_infinite_reverse]"></div>
                     
                     <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-white border-4 border-white shadow-card overflow-hidden relative z-10">
-                         <img src="https://ui-avatars.com/api/?name=Jane+Doe&background=ffffff&color=0284c7&size=256" alt="Profile" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                         <img src="https://ui-avatars.com/api/?name=Hiba+Laraisse&background=ffffff&color=0284c7&size=256" alt="Profile" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="text-center mt-4 md:absolute md:top-full md:left-1/2 md:-translate-x-1/2 md:w-max">
-                        <h1 class="font-mono text-xl font-bold text-ink tracking-wider">JANE DOE</h1>
-                        <p class="text-xs text-sky font-bold uppercase tracking-widest bg-sky/10 px-2 py-1 rounded mt-1 inline-block">Ingénieure Mécanique</p>
+                        <h1 class="font-mono text-xl font-bold text-ink tracking-wider">HIBA LARAISSE</h1>
+                        <p class="text-xs text-sky font-bold uppercase tracking-widest bg-sky/10 px-2 py-1 rounded mt-1 inline-block">Étudiante Ingénieure Mécanique</p>
                     </div>
                 </div>
             </div>
@@ -108,17 +108,17 @@
                 title: 'À Propos',
                 icon: 'fa-regular fa-user',
                 type: 'simple',
-                content: `Étudiante passionnée par l'innovation mécanique. Mon approche combine calculs structurels rigoureux et design produit créatif.`
+                content: `Étudiante en ingénierie mécanique (SUPMICROTECH - EMI), spécialisée en méthodes numériques, FEA, ANSYS et dynamique des structures. À la recherche d'un stage de 6 mois dès fin janvier 2026 en calcul EF, vibrations et modélisation.`
             },
             {
                 id: 'projects',
                 title: 'Projets',
                 icon: 'fa-solid fa-rocket',
-                type: 'drilldown', // Nouveau type pour la navigation à tiroir
+                type: 'drilldown',
                 items: [
-                    { title: "Drone VTOL Hybride", details: "Modélisation CATIA & Analyse aérodynamique Fluent. Prototypage structurel." },
-                    { title: "Optimisation Moteur", details: "Étude thermodynamique sur banc d'essai et réduction consommation (-12%)." },
-                    { title: "Bras Robotique", details: "Conception 6 axes, cinématique inverse et pilotage ROS." }
+                    { title: "Simulation & Éléments Finis", details: "<strong>Barrage-poids :</strong> Analyse complète par éléments finis (ANSYS).<br><strong>Treillis :</strong> Modélisation sous Nastran/Patran.<br><strong>Réservoir :</strong> Modélisation conforme CODAP et justification mécanique." },
+                    { title: "Conception & CAO", details: "<strong>Coupe-branche :</strong> Modélisation CAO et dimensionnement.<br><strong>Ascenseur de charge :</strong> Modélisation CAO et calculs." },
+                    { title: "Énergie & Aérospatial", details: "<strong>Panneaux solaires :</strong> Analyse et dimensionnement d'un système complet.<br><strong>Réservoir H2 :</strong> Étude pour Airbus ZEROe." }
                 ]
             },
             {
@@ -127,20 +127,20 @@
                 icon: 'fa-solid fa-microchip',
                 type: 'drilldown',
                 items: [
-                    { title: "CAO & Simulation", details: "SolidWorks (CSWP), CATIA V5, Ansys Workbench, Abaqus." },
-                    { title: "Programmation", details: "Python (NumPy/Pandas), MATLAB/Simulink, C++ embarqué." },
-                    { title: "Fabrication", details: "Impression 3D (FDM/SLA), Usinage CNC, Découpe Laser." }
+                    { title: "Simulation & Analyse", details: "ANSYS (statique, modal, non-linéaire), ADAMS, Nastran/Patran. Analyse dynamique des structures, matériaux, post-traitement." },
+                    { title: "CAO", details: "CATIA V5, SolidWorks, CREO." },
+                    { title: "Programmation & Autre", details: "Python, MATLAB, C, SQL, Arduino." }
                 ]
             },
             {
-                id: 'clubs',
-                title: 'Clubs',
-                icon: 'fa-solid fa-users-gear',
+                id: 'experience',
+                title: 'Expériences',
+                icon: 'fa-solid fa-briefcase',
                 type: 'drilldown',
                 items: [
-                    { title: "Club Robotique", details: "Vice-présidente technique. Participation Coupe de France de Robotique." },
-                    { title: "Club Aérospatial", details: "Responsable système de récupération (Parachutes) pour mini-fusée." },
-                    { title: "BDE", details: "Gestion logistique événementielle et budget (20k€)." }
+                    { title: "Stage Ingénieur - Groupe OCP", details: "Analyse mécanique de la pompe JFC2 (fiabilité et modes de défaillance). Étude vibratoire et diagnostic en fonctionnement. Suivi de la maintenance et recommandations techniques." },
+                    { title: "Stage d'Observation - Royal Air Maroc", details: "Observation de la maintenance sur Boeing/Embraer. Appui aux contrats de sous-traitance et à la documentation technique." },
+                    { title: "Vie Associative", details: "Vice-présidente AstroEMI (2024-2025). Cheffe sponsoring EMI Aerospace (2023-2025)." }
                 ]
             },
             {
@@ -151,12 +151,17 @@
                 content: `
                     <div class="border-l-2 border-sky pl-4 space-y-3">
                         <div>
-                            <h3 class="font-bold text-ink">Diplôme d'Ingénieur</h3>
-                            <p class="text-sm text-slate-500">2022 - Présent | ENSI</p>
+                            <h3 class="font-bold text-ink">Ingénierie des produits (Double diplôme)</h3>
+                            <p class="text-sm text-slate-500">2025 - Présent | Supmicrotech, Besançon</p>
                         </div>
                         <div>
-                            <h3 class="font-bold text-ink">CPGE (PTSI/PT)</h3>
-                            <p class="text-sm text-slate-500">2020 - 2022 | Lycée Faidherbe</p>
+                            <h3 class="font-bold text-ink">Génie Mécanique</h3>
+                            <p class="text-sm text-slate-500">2023 - 2025 | EMI, Rabat</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-ink">CPGE MP</h3>
+                            <p class="text-sm text-slate-500">2021 - 2023 | Lycée Moulay Idriss</p>
+                            <p class="text-xs text-slate-400 mt-1">Baccalauréat SMB Mention Très Bien</p>
                         </div>
                     </div>
                 `
@@ -167,9 +172,10 @@
                 icon: 'fa-regular fa-envelope',
                 type: 'drilldown',
                 items: [
-                    { title: "Email", details: '<a href="#" class="text-sky font-bold hover:underline">jane.doe@email.com</a>' },
-                    { title: "LinkedIn", details: '<a href="#" class="text-sky font-bold hover:underline">linkedin.com/in/jane</a>' },
-                    { title: "Disponibilité", details: "Stage 6 mois dès Janvier 2026." }
+                    { title: "Email", details: '<a href="mailto:hiba.laraisse@supmicrotech.fr" class="text-sky font-bold hover:underline">hiba.laraisse@supmicrotech.fr</a>' },
+                    { title: "Téléphone", details: '<a href="tel:+33757545469" class="text-sky font-bold hover:underline">07 57 54 54 69</a>' },
+                    { title: "LinkedIn", details: '<a href="https://linkedin.com/in/hibalaraisse" target="_blank" class="text-sky font-bold hover:underline">linkedin.com/in/hibalaraisse</a>' },
+                    { title: "Disponibilité", details: "Stage de 6 mois à partir de fin janvier 2026." }
                 ]
             }
         ];
@@ -225,7 +231,6 @@
                 // VUE 1 : LA LISTE (Menu Principal)
                 bodyHTML += `<div id="list-${section.id}" class="transition-all duration-300 space-y-2">`;
                 section.items.forEach((item, idx) => {
-                    // On passe l'index pour retrouver le contenu
                     bodyHTML += `
                         <button onclick="showDetail('${section.id}', ${idx})" class="w-full text-left p-3 rounded border border-slate-100 bg-white hover:border-sky hover:bg-sky/5 transition flex justify-between items-center group">
                             <span class="text-sm font-semibold text-ink group-hover:text-sky">${item.title}</span>
@@ -252,26 +257,21 @@
 
         // --- GESTION NAVIGATION INTERNE (Drill-down) ---
         
-        // 1. Aller dans le détail (Les autres disparaissent)
         function showDetail(sectionId, itemIndex) {
             const listEl = document.getElementById(`list-${sectionId}`);
             const detailEl = document.getElementById(`detail-${sectionId}`);
             
-            // Récupérer les données
             const section = portfolioData.find(s => s.id === sectionId);
             const item = section.items[itemIndex];
 
-            // Remplir le détail
             document.getElementById(`detail-title-${sectionId}`).textContent = item.title;
             document.getElementById(`detail-text-${sectionId}`).innerHTML = item.details;
 
-            // Animation : La liste part à gauche, le détail arrive de droite
-            listEl.classList.add('hidden'); // On cache brutalement pour simplifier ou on peut animer
+            listEl.classList.add('hidden');
             detailEl.classList.remove('hidden');
             detailEl.classList.add('animate-slide-right');
         }
 
-        // 2. Revenir à la liste
         function goBack(sectionId) {
             const listEl = document.getElementById(`list-${sectionId}`);
             const detailEl = document.getElementById(`detail-${sectionId}`);
@@ -280,11 +280,11 @@
             detailEl.classList.remove('animate-slide-right');
             
             listEl.classList.remove('hidden');
-            listEl.classList.add('animate-fly-in-left'); // Petite animation de retour
+            listEl.classList.add('animate-fly-in-left');
         }
 
 
-        // --- GESTION DES CLICS PRINCIPAUX (inchangé) ---
+        // --- GESTION DES CLICS PRINCIPAUX ---
         function handleSectionClick(event, sectionData) {
             const clickedButton = event.currentTarget;
             if (activeSectionId === sectionData.id) { closeAllSections(); return; }
@@ -322,7 +322,6 @@
                 contentBlock.classList.add('animate-fade-in');
             }
 
-            // Reset navigation interne si on rouvre
             if(sectionData.type === 'drilldown') {
                 const listEl = document.getElementById(`list-${sectionData.id}`);
                 const detailEl = document.getElementById(`detail-${sectionData.id}`);
