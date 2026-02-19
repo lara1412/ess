@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr" class="bg-slate-50">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Hiba Laraisse</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Portfolio – Hiba Laraisse | Mechanical Engineer</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet"/>
 
     <script>
         tailwind.config = {
@@ -21,35 +23,7 @@
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     boxShadow: {
-                        'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
-                    },
-                    animation: {
-                        'fly-in-right': 'flyInRight 0.4s ease-out forwards',
-                        'fly-in-left': 'flyInLeft 0.4s ease-out forwards',
-                        'fade-in': 'fadeIn 0.4s ease-out forwards',
-                        'slide-left': 'slideLeft 0.3s ease-in-out forwards',
-                        'slide-right': 'slideRight 0.3s ease-in-out forwards',
-                    },
-                    keyframes: {
-                        flyInRight: { 
-                            'from': { opacity: 0, transform: 'translateX(-20px)' },
-                            'to': { opacity: 1, transform: 'translateX(0)' }
-                        },
-                        flyInLeft: { 
-                            'from': { opacity: 0, transform: 'translateX(20px)' },
-                            'to': { opacity: 1, transform: 'translateX(0)' }
-                        },
-                        fadeIn: {
-                            'from': { opacity: 0, transform: 'translateY(10px)' },
-                            'to': { opacity: 1, transform: 'translateY(0)' }
-                        },
-                        slideLeft: {
-                            'to': { opacity: 0, transform: 'translateX(-50px)' }
-                        },
-                        slideRight: {
-                            'from': { opacity: 0, transform: 'translateX(50px)' },
-                            'to': { opacity: 1, transform: 'translateX(0)' }
-                        }
+                        card: '0 4px 20px rgba(0,0,0,0.08)'
                     }
                 }
             }
@@ -57,292 +31,186 @@
     </script>
 
     <style>
-        .bg-grid-paper::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: 
-                linear-gradient(to right, rgba(2, 132, 199, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(2, 132, 199, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
-            z-index: 0;
+        .bg-grid-paper::before{
+            content:"";
+            position:absolute;
+            inset:0;
+            background-image:
+                linear-gradient(to right, rgba(2,132,199,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(2,132,199,0.05) 1px, transparent 1px);
+            background-size:40px 40px;
+            pointer-events:none;
         }
 
-        body::-webkit-scrollbar { display: none; }
-        body { -ms-overflow-style: none; scrollbar-width: none; }
+        body::-webkit-scrollbar{display:none;}
     </style>
 </head>
-<body class="text-ink font-sans min-h-screen overflow-x-hidden bg-slate-50 bg-grid-paper selection:bg-sky selection:text-white">
 
-    <main class="relative min-h-screen flex items-center justify-center p-4">
-        
-        <div class="relative w-full max-w-5xl h-[80vh] flex flex-col md:block items-center justify-center">
+<body class="text-ink font-sans min-h-screen bg-slate-50 bg-grid-paper overflow-x-hidden">
 
-            <div class="md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-20 mb-8 md:mb-0">
-                <div class="relative group">
-                    <div class="absolute inset-0 rounded-full border-2 border-sky/20 animate-[spin_10s_linear_infinite] group-hover:border-sky/50 transition"></div>
-                    <div class="absolute -inset-2 rounded-full border border-dashed border-sky/10 animate-[spin_15s_linear_infinite_reverse]"></div>
-                    
-                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-white border-4 border-white shadow-card overflow-hidden relative z-10">
-                         <img src="https://ui-avatars.com/api/?name=Hiba+Laraisse&background=ffffff&color=0284c7&size=256" alt="Profile" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
-                    <div class="text-center mt-4 md:absolute md:top-full md:left-1/2 md:-translate-x-1/2 md:w-max">
-                        <h1 class="font-mono text-xl font-bold text-ink tracking-wider">HIBA LARAISSE</h1>
-                        <p class="text-xs text-sky font-bold uppercase tracking-widest bg-sky/10 px-2 py-1 rounded mt-1 inline-block">Étudiante Ingénieure Mécanique</p>
-                    </div>
-                </div>
-            </div>
+<main class="min-h-screen flex items-center justify-center p-6">
 
-            <div id="radial-menu-container" class="grid grid-cols-2 gap-4 md:block md:absolute md:inset-0 pointer-events-none z-30"></div>
+<div class="relative w-full max-w-5xl h-[80vh] flex items-center justify-center">
 
-             <div id="content-layer" class="absolute inset-0 pointer-events-none z-40"></div>
+<!-- PROFILE CENTER -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center">
 
+    <div class="w-40 h-40 rounded-full bg-white shadow-card border-4 border-white overflow-hidden mx-auto">
+        <!-- tu peux remplacer par ta photo -->
+        <img src="https://ui-avatars.com/api/?name=Hiba+Laraisse&background=ffffff&color=0284c7&size=256"
+             class="w-full h-full object-cover">
+    </div>
+
+    <h1 class="font-mono text-xl font-bold mt-4 tracking-wider">
+        HIBA LARAISSE
+    </h1>
+
+    <p class="text-xs text-sky font-bold uppercase tracking-widest bg-sky/10 px-2 py-1 rounded mt-2 inline-block">
+        Mechanical Engineering Student – FEA & Simulation
+    </p>
+</div>
+
+<div id="menu" class="absolute inset-0"></div>
+<div id="content-layer" class="absolute inset-0"></div>
+
+</div>
+</main>
+
+<script>
+/* =========================
+   PORTFOLIO DATA
+========================= */
+
+const portfolioData = [
+
+{
+    id:'about',
+    title:'À Propos',
+    icon:'fa-regular fa-user',
+    content:`Étudiante en ingénierie mécanique (double diplôme SUPMICROTECH – EMI).
+    Spécialisée en calcul par éléments finis, dynamique des structures et simulation numérique.`
+},
+
+{
+    id:'experience',
+    title:'Expérience',
+    icon:'fa-solid fa-briefcase',
+    content:`
+    <b>Stage – Groupe OCP</b><br>
+    • Analyse mécanique pompe JFC2<br>
+    • Étude vibratoire & diagnostic<br>
+    • Fiabilité et maintenance<br><br>
+
+    <b>Stage – Royal Air Maroc</b><br>
+    • Observation maintenance Boeing/Embraer<br>
+    • Documentation technique & sous-traitance MRO
+    `
+},
+
+{
+    id:'skills',
+    title:'Compétences',
+    icon:'fa-solid fa-microchip',
+    content:`
+    <b>Simulation :</b> ANSYS, Nastran/Patran, ADAMS<br>
+    <b>CAO :</b> CATIA V5, SolidWorks, CREO<br>
+    <b>Code :</b> Python, MATLAB, C, SQL, Arduino<br>
+    <b>Domaines :</b> dynamique, vibrations, matériaux, fatigue
+    `
+},
+
+{
+    id:'projects',
+    title:'Projets académiques',
+    icon:'fa-solid fa-rocket',
+    content:`
+    • Treillis EF (Nastran/Patran)<br>
+    • Barrage-poids ANSYS<br>
+    • Réservoir CODAP<br>
+    • Réservoir H₂ ZEROe<br>
+    • Ascenseur de charge CAO + calculs<br>
+    • Sélection matériaux CES EduPack
+    `
+},
+
+{
+    id:'clubs',
+    title:'Clubs',
+    icon:'fa-solid fa-users',
+    content:`
+    • EMI Aerospace – Cheffe sponsoring<br>
+    • AstroEMI – Cheffe sponsoring<br>
+    • Organisation événements techniques & partenariats industriels
+    `
+},
+
+{
+    id:'contact',
+    title:'Contact',
+    icon:'fa-regular fa-envelope',
+    content:`
+    📧 <a href="mailto:hiba.laraisse@supmicrotech.fr" class="text-sky font-bold">hiba.laraisse@supmicrotech.fr</a><br>
+    💼 <a href="https://linkedin.com/in/hibalaraisse" class="text-sky font-bold">LinkedIn</a><br>
+    📅 Stage 6 mois – Janvier 2026
+    `
+}
+
+];
+
+/* =========================
+   UI GENERATION
+========================= */
+
+const menu = document.getElementById("menu");
+const contentLayer = document.getElementById("content-layer");
+
+const radius = 260;
+
+portfolioData.forEach((section,i)=>{
+
+    const angle = (i/portfolioData.length)*Math.PI*2;
+
+    const x = Math.cos(angle)*radius;
+    const y = Math.sin(angle)*radius;
+
+    const btn = document.createElement("button");
+
+    btn.className="absolute w-24 h-24 rounded-full bg-white shadow-card border hover:border-sky flex flex-col items-center justify-center transition";
+
+    btn.style.left=`calc(50% + ${x}px)`;
+    btn.style.top=`calc(50% + ${y}px)`;
+    btn.style.transform="translate(-50%,-50%)";
+
+    btn.innerHTML=`
+        <i class="${section.icon} text-sky text-xl"></i>
+        <span class="text-[10px] font-mono mt-1">${section.title}</span>
+    `;
+
+    btn.onclick=()=>showContent(section);
+
+    menu.appendChild(btn);
+});
+
+
+function showContent(section){
+
+    contentLayer.innerHTML="";
+
+    const box=document.createElement("div");
+
+    box.className="absolute left-1/2 top-[85%] -translate-x-1/2 w-[330px] bg-white shadow-xl rounded-lg border p-5";
+
+    box.innerHTML=`
+        <div class="flex justify-between items-center mb-3">
+            <h2 class="font-bold font-mono text-sm">${section.title}</h2>
+            <button onclick="this.parentElement.parentElement.remove()">✕</button>
         </div>
-    </main>
+        <div class="text-sm text-slate-600 leading-relaxed">${section.content}</div>
+    `;
 
-    <script>
-        const portfolioData = [
-            {
-                id: 'about',
-                title: 'À Propos',
-                icon: 'fa-regular fa-user',
-                type: 'simple',
-                content: `Étudiante en ingénierie mécanique (SUPMICROTECH - EMI), spécialisée en méthodes numériques, FEA, ANSYS et dynamique des structures. À la recherche d'un stage de 6 mois dès fin janvier 2026 en calcul EF, vibrations et modélisation.`
-            },
-            {
-                id: 'projects',
-                title: 'Projets',
-                icon: 'fa-solid fa-rocket',
-                type: 'drilldown',
-                items: [
-                    { title: "Simulation & Éléments Finis", details: "<strong>Barrage-poids :</strong> Analyse complète par éléments finis (ANSYS).<br><strong>Treillis :</strong> Modélisation sous Nastran/Patran.<br><strong>Réservoir :</strong> Modélisation conforme CODAP et justification mécanique." },
-                    { title: "Conception & CAO", details: "<strong>Coupe-branche :</strong> Modélisation CAO et dimensionnement.<br><strong>Ascenseur de charge :</strong> Modélisation CAO et calculs." },
-                    { title: "Énergie & Aérospatial", details: "<strong>Panneaux solaires :</strong> Analyse et dimensionnement d'un système complet.<br><strong>Réservoir H2 :</strong> Étude pour Airbus ZEROe." }
-                ]
-            },
-            {
-                id: 'skills',
-                title: 'Compétences',
-                icon: 'fa-solid fa-microchip',
-                type: 'drilldown',
-                items: [
-                    { title: "Simulation & Analyse", details: "ANSYS (statique, modal, non-linéaire), ADAMS, Nastran/Patran. Analyse dynamique des structures, matériaux, post-traitement." },
-                    { title: "CAO", details: "CATIA V5, SolidWorks, CREO." },
-                    { title: "Programmation & Autre", details: "Python, MATLAB, C, SQL, Arduino." }
-                ]
-            },
-            {
-                id: 'experience',
-                title: 'Expériences',
-                icon: 'fa-solid fa-briefcase',
-                type: 'drilldown',
-                items: [
-                    { title: "Stage Ingénieur - Groupe OCP", details: "Analyse mécanique de la pompe JFC2 (fiabilité et modes de défaillance). Étude vibratoire et diagnostic en fonctionnement. Suivi de la maintenance et recommandations techniques." },
-                    { title: "Stage d'Observation - Royal Air Maroc", details: "Observation de la maintenance sur Boeing/Embraer. Appui aux contrats de sous-traitance et à la documentation technique." },
-                    { title: "Vie Associative", details: "Vice-présidente AstroEMI (2024-2025). Cheffe sponsoring EMI Aerospace (2023-2025)." }
-                ]
-            },
-            {
-                id: 'education',
-                title: 'Formation',
-                icon: 'fa-solid fa-graduation-cap',
-                type: 'simple',
-                content: `
-                    <div class="border-l-2 border-sky pl-4 space-y-3">
-                        <div>
-                            <h3 class="font-bold text-ink">Ingénierie des produits (Double diplôme)</h3>
-                            <p class="text-sm text-slate-500">2025 - Présent | Supmicrotech, Besançon</p>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-ink">Génie Mécanique</h3>
-                            <p class="text-sm text-slate-500">2023 - 2025 | EMI, Rabat</p>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-ink">CPGE MP</h3>
-                            <p class="text-sm text-slate-500">2021 - 2023 | Lycée Moulay Idriss</p>
-                            <p class="text-xs text-slate-400 mt-1">Baccalauréat SMB Mention Très Bien</p>
-                        </div>
-                    </div>
-                `
-            },
-            {
-                id: 'contact',
-                title: 'Contact',
-                icon: 'fa-regular fa-envelope',
-                type: 'drilldown',
-                items: [
-                    { title: "Email", details: '<a href="mailto:hiba.laraisse@supmicrotech.fr" class="text-sky font-bold hover:underline">hiba.laraisse@supmicrotech.fr</a>' },
-                    { title: "Téléphone", details: '<a href="tel:+33757545469" class="text-sky font-bold hover:underline">07 57 54 54 69</a>' },
-                    { title: "LinkedIn", details: '<a href="https://linkedin.com/in/hibalaraisse" target="_blank" class="text-sky font-bold hover:underline">linkedin.com/in/hibalaraisse</a>' },
-                    { title: "Disponibilité", details: "Stage de 6 mois à partir de fin janvier 2026." }
-                ]
-            }
-        ];
+    contentLayer.appendChild(box);
+}
+</script>
 
-        const menuContainer = document.getElementById('radial-menu-container');
-        const contentLayer = document.getElementById('content-layer');
-        let activeSectionId = null;
-        const desktopRadius = 260;
-
-        portfolioData.forEach((section, index) => {
-            const button = document.createElement('button');
-            button.dataset.id = section.id;
-            button.className = `menu-btn relative pointer-events-auto p-4 flex flex-col items-center justify-center rounded-xl border border-slate-200 bg-white shadow-card hover:border-sky hover:shadow-lg transition-all duration-300 group z-30`;
-            
-            const angleDeg = (index / portfolioData.length) * 360 - 90;
-            const angleRad = angleDeg * (Math.PI / 180);
-            
-            if (window.matchMedia('(min-width: 768px)').matches) {
-                 button.classList.add('md:absolute', 'md:w-24', 'md:h-24', 'md:rounded-full');
-                 button.style.left = `calc(50% + ${Math.cos(angleRad) * desktopRadius}px)`;
-                 button.style.top = `calc(50% + ${Math.sin(angleRad) * desktopRadius}px)`;
-                 button.style.transform = 'translate(-50%, -50%)'; 
-            }
-
-            button.innerHTML = `
-                <i class="${section.icon} text-2xl text-slate-400 group-hover:text-sky transition-colors duration-300 mb-1"></i>
-                <span class="font-mono text-[10px] uppercase tracking-wider text-slate-500 group-hover:text-ink font-bold">${section.title}</span>
-            `;
-            button.addEventListener('click', (e) => handleSectionClick(e, section));
-            menuContainer.appendChild(button);
-
-            // --- CRÉATION DE LA BOITE DE CONTENU ---
-            const contentBlock = document.createElement('div');
-            contentBlock.id = `content-${section.id}`;
-            contentBlock.className = `content-block absolute hidden pointer-events-auto z-40 w-full md:w-[320px] bg-white border border-slate-100 rounded-lg shadow-xl overflow-hidden`;
-
-            // En-tête (Fixe)
-            let headerHTML = `
-                 <div class="flex items-center justify-between p-4 border-b border-slate-50 bg-slate-50/50">
-                    <div class="flex items-center gap-2">
-                        <i class="${section.icon} text-sky"></i>
-                        <h2 class="font-mono text-sm font-bold text-ink uppercase tracking-wider">${section.title}</h2>
-                    </div>
-                     <button onclick="closeAllSections()" class="text-slate-400 hover:text-red-500 transition"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-            `;
-
-            let bodyHTML = `<div class="p-4 relative min-h-[150px]">`;
-
-            if (section.type === 'simple') {
-                bodyHTML += `<div class="text-slate-600 text-sm leading-relaxed">${section.content}</div>`;
-            } else if (section.type === 'drilldown') {
-                // VUE 1 : LA LISTE (Menu Principal)
-                bodyHTML += `<div id="list-${section.id}" class="transition-all duration-300 space-y-2">`;
-                section.items.forEach((item, idx) => {
-                    bodyHTML += `
-                        <button onclick="showDetail('${section.id}', ${idx})" class="w-full text-left p-3 rounded border border-slate-100 bg-white hover:border-sky hover:bg-sky/5 transition flex justify-between items-center group">
-                            <span class="text-sm font-semibold text-ink group-hover:text-sky">${item.title}</span>
-                            <i class="fa-solid fa-chevron-right text-xs text-slate-300 group-hover:text-sky"></i>
-                        </button>
-                    `;
-                });
-                bodyHTML += `</div>`;
-
-                // VUE 2 : LE DÉTAIL (Caché au début)
-                bodyHTML += `<div id="detail-${section.id}" class="hidden absolute inset-0 p-4 bg-white transition-all duration-300 flex flex-col">
-                    <button onclick="goBack('${section.id}')" class="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-ink mb-3 transition">
-                        <i class="fa-solid fa-arrow-left"></i> RETOUR
-                    </button>
-                    <h3 id="detail-title-${section.id}" class="font-bold text-sky text-lg mb-2"></h3>
-                    <p id="detail-text-${section.id}" class="text-sm text-slate-600 leading-relaxed"></p>
-                </div>`;
-            }
-
-            bodyHTML += `</div>`;
-            contentBlock.innerHTML = headerHTML + bodyHTML;
-            contentLayer.appendChild(contentBlock);
-        });
-
-        // --- GESTION NAVIGATION INTERNE (Drill-down) ---
-        
-        function showDetail(sectionId, itemIndex) {
-            const listEl = document.getElementById(`list-${sectionId}`);
-            const detailEl = document.getElementById(`detail-${sectionId}`);
-            
-            const section = portfolioData.find(s => s.id === sectionId);
-            const item = section.items[itemIndex];
-
-            document.getElementById(`detail-title-${sectionId}`).textContent = item.title;
-            document.getElementById(`detail-text-${sectionId}`).innerHTML = item.details;
-
-            listEl.classList.add('hidden');
-            detailEl.classList.remove('hidden');
-            detailEl.classList.add('animate-slide-right');
-        }
-
-        function goBack(sectionId) {
-            const listEl = document.getElementById(`list-${sectionId}`);
-            const detailEl = document.getElementById(`detail-${sectionId}`);
-
-            detailEl.classList.add('hidden');
-            detailEl.classList.remove('animate-slide-right');
-            
-            listEl.classList.remove('hidden');
-            listEl.classList.add('animate-fly-in-left');
-        }
-
-
-        // --- GESTION DES CLICS PRINCIPAUX ---
-        function handleSectionClick(event, sectionData) {
-            const clickedButton = event.currentTarget;
-            if (activeSectionId === sectionData.id) { closeAllSections(); return; }
-            closeAllSections();
-            activeSectionId = sectionData.id;
-
-            clickedButton.classList.add('border-sky', 'ring-2', 'ring-sky/10');
-            clickedButton.querySelector('i').classList.replace('text-slate-400', 'text-sky');
-            clickedButton.querySelector('span').classList.replace('text-slate-500', 'text-ink');
-
-            const contentBlock = document.getElementById(`content-${sectionData.id}`);
-            const btnRect = clickedButton.getBoundingClientRect();
-            const containerRect = menuContainer.getBoundingClientRect();
-            
-            if (window.innerWidth >= 768) {
-                let topPos = btnRect.top - containerRect.top;
-                let leftPos = (btnRect.left - containerRect.left) + btnRect.width + 20; 
-                let animClass = 'animate-fly-in-right'; 
-
-                const contentWidth = 320; 
-                if (leftPos + contentWidth > containerRect.width) {
-                    leftPos = (btnRect.left - containerRect.left) - contentWidth - 20;
-                    animClass = 'animate-fly-in-left'; 
-                }
-
-                contentBlock.style.top = `${topPos}px`;
-                contentBlock.style.left = `${leftPos}px`;
-                contentBlock.classList.remove('animate-fly-in-right', 'animate-fly-in-left', 'animate-fade-in');
-                contentBlock.classList.add(animClass);
-
-            } else {
-                contentBlock.style.left = `50%`;
-                contentBlock.style.top = `${btnRect.bottom - containerRect.top + 10}px`;
-                contentBlock.style.transform = 'translateX(-50%)';
-                contentBlock.classList.add('animate-fade-in');
-            }
-
-            if(sectionData.type === 'drilldown') {
-                const listEl = document.getElementById(`list-${sectionData.id}`);
-                const detailEl = document.getElementById(`detail-${sectionData.id}`);
-                listEl.classList.remove('hidden');
-                detailEl.classList.add('hidden');
-            }
-
-            contentBlock.classList.remove('hidden');
-        }
-
-        function closeAllSections() {
-            activeSectionId = null;
-            document.querySelectorAll('.content-block').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.menu-btn').forEach(btn => {
-                btn.classList.remove('border-sky', 'ring-2', 'ring-sky/10');
-                btn.querySelector('i').classList.replace('text-sky', 'text-slate-400');
-                btn.querySelector('span').classList.replace('text-ink', 'text-slate-500');
-            });
-        }
-        
-        window.addEventListener('resize', closeAllSections);
-    </script>
 </body>
 </html>
