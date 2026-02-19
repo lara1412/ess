@@ -1,86 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr" class="bg-slate-50">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Portfolio – Hiba Laraisse | Mechanical Engineer</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet"/>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        sky: { DEFAULT: '#0284c7', light: '#38bdf8' },
-                        ink: '#0f172a',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    boxShadow: {
-                        card: '0 4px 20px rgba(0,0,0,0.08)'
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        .bg-grid-paper::before{
-            content:"";
-            position:absolute;
-            inset:0;
-            background-image:
-                linear-gradient(to right, rgba(2,132,199,0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(2,132,199,0.05) 1px, transparent 1px);
-            background-size:40px 40px;
-            pointer-events:none;
-        }
-
-        body::-webkit-scrollbar{display:none;}
-    </style>
-</head>
-
-<body class="text-ink font-sans min-h-screen bg-slate-50 bg-grid-paper overflow-x-hidden">
-
-<main class="min-h-screen flex items-center justify-center p-6">
-
-<div class="relative w-full max-w-5xl h-[80vh] flex items-center justify-center">
-
-<!-- PROFILE CENTER -->
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center">
-
-    <div class="w-40 h-40 rounded-full bg-white shadow-card border-4 border-white overflow-hidden mx-auto">
-        <!-- tu peux remplacer par ta photo -->
-        <img src="https://ui-avatars.com/api/?name=Hiba+Laraisse&background=ffffff&color=0284c7&size=256"
-             class="w-full h-full object-cover">
-    </div>
-
-    <h1 class="font-mono text-xl font-bold mt-4 tracking-wider">
-        HIBA LARAISSE
-    </h1>
-
-    <p class="text-xs text-sky font-bold uppercase tracking-widest bg-sky/10 px-2 py-1 rounded mt-2 inline-block">
-        Mechanical Engineering Student – FEA & Simulation
-    </p>
-</div>
-
-<div id="menu" class="absolute inset-0"></div>
-<div id="content-layer" class="absolute inset-0"></div>
-
-</div>
-</main>
-
-<script>
-/* =========================
-   PORTFOLIO DATA
-========================= */
-
 const portfolioData = [
 
 {
@@ -138,8 +55,9 @@ const portfolioData = [
     title:'Clubs',
     icon:'fa-solid fa-users',
     content:`
-    • EMI Aerospace – Cheffe sponsoring<br>
-    • AstroEMI – Cheffe sponsoring<br>
+    • EMI Aerospace – Cheffe sponsoring & membre projet<br>
+    • AstroEMI – Cheffe sponsoring & membre projet<br>
+    • Eminence – Vice-Présidente<br>
     • Organisation événements techniques & partenariats industriels
     `
 },
@@ -156,61 +74,3 @@ const portfolioData = [
 }
 
 ];
-
-/* =========================
-   UI GENERATION
-========================= */
-
-const menu = document.getElementById("menu");
-const contentLayer = document.getElementById("content-layer");
-
-const radius = 260;
-
-portfolioData.forEach((section,i)=>{
-
-    const angle = (i/portfolioData.length)*Math.PI*2;
-
-    const x = Math.cos(angle)*radius;
-    const y = Math.sin(angle)*radius;
-
-    const btn = document.createElement("button");
-
-    btn.className="absolute w-24 h-24 rounded-full bg-white shadow-card border hover:border-sky flex flex-col items-center justify-center transition";
-
-    btn.style.left=`calc(50% + ${x}px)`;
-    btn.style.top=`calc(50% + ${y}px)`;
-    btn.style.transform="translate(-50%,-50%)";
-
-    btn.innerHTML=`
-        <i class="${section.icon} text-sky text-xl"></i>
-        <span class="text-[10px] font-mono mt-1">${section.title}</span>
-    `;
-
-    btn.onclick=()=>showContent(section);
-
-    menu.appendChild(btn);
-});
-
-
-function showContent(section){
-
-    contentLayer.innerHTML="";
-
-    const box=document.createElement("div");
-
-    box.className="absolute left-1/2 top-[85%] -translate-x-1/2 w-[330px] bg-white shadow-xl rounded-lg border p-5";
-
-    box.innerHTML=`
-        <div class="flex justify-between items-center mb-3">
-            <h2 class="font-bold font-mono text-sm">${section.title}</h2>
-            <button onclick="this.parentElement.parentElement.remove()">✕</button>
-        </div>
-        <div class="text-sm text-slate-600 leading-relaxed">${section.content}</div>
-    `;
-
-    contentLayer.appendChild(box);
-}
-</script>
-
-</body>
-</html>
